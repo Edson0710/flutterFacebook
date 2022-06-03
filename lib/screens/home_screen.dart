@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_facebook/config/palette.dart';
+import 'package:flutter_application_facebook/data/data.dart';
+import 'package:flutter_application_facebook/widgets/widgets.dart';
+// ignore: unused_import
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,34 +28,21 @@ class HomeScreen extends StatelessWidget {
             centerTitle: false,
             floating: true,
             actions: [
-              Container(
-                margin: const EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: Icon(Icons.search),
-                  iconSize: 30-0,
-                  color: Colors.black,
-                  onPressed: () {},
-                ),
+              CircleButton(
+                icon: Icons.search,
+                iconSize: 30.0,
+                onPressed: () => print('Search'),
               ),
-              Container(
-                margin: const EdgeInsets.all(6.0),
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: Icon(Icons.search),
-                  iconSize: 30-0,
-                  color: Colors.black,
-                  onPressed: () {},
-                ),
+              CircleButton(
+                icon: MdiIcons.facebookMessenger,
+                iconSize: 30.0,
+                onPressed: () => print('Messenger'),
               ),
             ],
           ),
+          SliverToBoxAdapter(
+            child: CreatePostContainer(currentUser: currentUser),
+          )
         ],
       ),
     );
